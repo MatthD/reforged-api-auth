@@ -1,0 +1,24 @@
+{
+  "name": "reforged-api-auth",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/main.js",
+  "scripts": {
+    "test": "bash helpers/test.bash",
+    "start": "node src/main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MatthD/reforged-api-auth.git"
+  },
+  "author": "MatthD",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MatthD/reforged-api-auth/issues"
+  },
+  "homepage": "https://github.com/MatthD/reforged-api-auth#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-jwt": "^5.3.3"
+  }
+}
