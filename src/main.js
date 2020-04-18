@@ -1,13 +1,22 @@
-const express = require("express");
-const jwt = require("express-jwt");
+const express = require('express');
+const jwt = require('express-jwt');
+const routes = require('./routes.js');
+const bodyParser = require('body-parser')
+
 const app = express();
+app.use('/', routes);
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+  extended: true
+})); 
 
 const PORT_NB = 3000;
-const sucessMessage = "Hello reforged team";
+const sucessMessage = 'Hello reforged team';
+
 
 app.use(function handleErrorMiddleware(err, req, res, next) {
-  if (err.name === "UnauthorizedError") {
-    res.status(403).send("invalid token...");
+  if (err.name === 'UnauthorizedError') {
+    res.status(403).send('invalid token...');
   }
   next();
 });
@@ -15,15 +24,15 @@ app.use(function handleErrorMiddleware(err, req, res, next) {
 // Here we check jwt
 app.use(
   jwt({
-    secret: "qwertyuiopasdfghjklzxcvbnm123456",
+    secret: 'qwertyuiopasdfghjklzxcvbnm123456',
     credentialsRequired: false,
   })
 );
 
 // Main endpoint of the api
-app.get("/", function mainEndpoint(req, res) {
-  if (!req.user || req.user.Role !== "user") {
-    return res.status(403).send("Cannot access reforged api anonymously 🤕");
+app.get('/', function mainEndpoint(req, res) {
+  if (!req.user || req.user.Role !== 'user') {
+    return res.status(403).send('Cannot access reforged api anonymously 🤕');
   }
   res.send({ user: req.user.Role, message: sucessMessage });
 });
