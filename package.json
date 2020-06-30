@@ -19,7 +19,7 @@
   "homepage": "https://github.com/MatthD/reforged-api-auth#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "express-jwt": "^5.3.3"
+    "express-jwt": "^6.0.0"
   },
   "devDependencies": {
     "body-parser": "^1.19.0",
